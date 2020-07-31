@@ -10,13 +10,18 @@ import { List, ListItem, Button, colors } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
+    flexDirection: 'row',
+    [theme.breakpoints.up('lg')]: {
+      flexDirection: 'row',
+    },
+    [theme.breakpoints.down('md')]: {
+      flexDirection: 'column',
+    }
   },
   item: {
-    display: 'flex',
-    flexDirection: 'column',
     paddingTop: 0,
     paddingBottom: 0,
-    marginLeft: '30px'
+    marginLeft: '30px',
   },
   button: {
     color: colors.blueGrey[800],

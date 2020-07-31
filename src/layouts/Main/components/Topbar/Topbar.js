@@ -3,7 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
-import { AppBar, Toolbar, Hidden, IconButton } from '@material-ui/core';
+import { AppBar, Toolbar, Hidden, IconButton, Drawer } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountIcon from '@material-ui/icons/PersonOutlined';
 import InputIcon from '@material-ui/icons/Input';
@@ -14,22 +14,33 @@ const useStyles = makeStyles(theme => ({
     boxShadow: 'none'
   },
   flexGrow: {
-    flexGrow: 1
+    flexGrow: 2
   },
   signOutButton: {
-    marginLeft: theme.spacing(1)
+    marginLeft: theme.spacing(2),
   },
   profileButton: {
-    marginLeft: theme.spacing(1)
-  }
+    marginLeft: theme.spacing(3)
+  },
+  drawer: {
+    width: 240,
+    [theme.breakpoints.up('lg')]: {
+      marginTop: 64,
+      height: 'calc(100% - 64px)'
+    }
+  },
 }));
 
 const Topbar = props => {
   const { className, onSidebarOpen, ...rest } = props;
 
   const classes = useStyles();
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
   const pages = [
     {
       title: 'Statistics',
@@ -60,12 +71,12 @@ const Topbar = props => {
             src="/images/logos/logo.png"
           />
         </RouterLink>
-
-        <TopbarNav
-          className={classes.nav}
-          pages={pages}
-        />
-
+        <Hidden mdDown>
+          <TopbarNav
+            className={classes.nav}
+            pages={pages}
+          />
+        </Hidden>
         <div className={classes.flexGrow} />
         <Hidden mdDown>
           <RouterLink to="/profile">
@@ -83,15 +94,47 @@ const Topbar = props => {
             <InputIcon />
           </IconButton>
         </Hidden>
+
         <Hidden lgUp>
           <IconButton
             color="inherit"
-            onClick={onSidebarOpen}
+            onClick={handleDrawerToggle}
           >
             <MenuIcon />
           </IconButton>
         </Hidden>
       </Toolbar>
+
+      <Hidden lgUp>
+        <Drawer
+          variant="temporary"
+          anchor={"right"}
+          open={mobileOpen}
+          classes={{ paper: classes.drawer }}
+          onClose={handleDrawerToggle}
+        >
+          <div className={classes.appResponsive}>
+            <TopbarNav
+              className={classes.nav}
+              pages={pages}
+            />
+            <RouterLink to="/profile">
+              <IconButton
+                className={classes.profileButton}
+                color="default"
+              >
+                <AccountIcon />
+              </IconButton>
+            </RouterLink>
+            <IconButton
+              className={classes.signOutButton}
+              color="default"
+            >
+              <InputIcon />
+            </IconButton>
+          </div>
+        </Drawer>
+      </Hidden>
     </AppBar>
   );
 };
