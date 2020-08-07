@@ -13,12 +13,14 @@ import {
   TableBody,
   TableCell,
   TableHead,
-  TableRow,
+  TableRow 
 } from '@material-ui/core';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 import mockData from './data';
 import { StatusBullet } from 'components';
+import ViewAll from "./ViewAll";
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -49,6 +51,8 @@ const statusColors = {
   sufficient: 'success'
 };
 
+
+
 const Status = props => {
   const { className, ...rest } = props;
 
@@ -56,6 +60,14 @@ const Status = props => {
 
   const [ports] = useState(mockData);
 
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+
+  
   return (
     <Card
       {...rest}
@@ -103,9 +115,14 @@ const Status = props => {
           color="primary"
           size="small"
           variant="text"
+          onClick={handleClickOpen}
         >
           View all <ArrowRightIcon />
         </Button>
+          <ViewAll 
+            open={open}
+            setOpen={setOpen}
+          />
       </CardActions>
     </Card>
   );

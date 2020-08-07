@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundImage: 'url(/images/auth.jpg)',
+    backgroundImage: 'url(/images/cargo5.jpg)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center'
@@ -187,7 +187,7 @@ const SignIn = props => {
         <Grid
           className={classes.quoteContainer}
           item
-          lg={5}
+          lg={7}
         >
           <div className={classes.quote}>
             <div className={classes.quoteInner}>
@@ -213,15 +213,10 @@ const SignIn = props => {
         <Grid
           className={classes.content}
           item
-          lg={7}
+          lg={5}
           xs={12}
         >
           <div className={classes.content}>
-            {/* <div className={classes.contentHeader}>
-              <IconButton onClick={handleBack}>
-                <ArrowBackIcon />
-              </IconButton>
-            </div> */}
             <div className={classes.contentBody}>
               <form
                 className={classes.form}
