@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const KakaoMap_ = props => {
+const KakaoMap2 = props => {
   const { className, ...rest } = props;
 
   const classes = useStyles();
@@ -37,8 +37,8 @@ const KakaoMap_ = props => {
   );
 };
 
-KakaoMap_.propTypes = {
+KakaoMap2.propTypes = {
   className: PropTypes.string
 };
 
-export default KakaoMap_;
+export default KakaoMap2;

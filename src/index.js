@@ -6,8 +6,8 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 
 const theme = createMuiTheme({
   typography: {
-    fontFamily: '"Noto Sans KR", serif,'
-  },
+    fontFamily: '"NanumSquareRound", serif'
+    },
 });
 
 ReactDOM.render(<MuiThemeProvider theme={theme}> <App /> </MuiThemeProvider>, document.getElementById('root'));

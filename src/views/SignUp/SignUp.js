@@ -15,6 +15,8 @@ import {
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
+import image from 'assets/img/main.jpg';
+
 const schema = {
   firstName: {
     presence: { allowEmpty: false, message: 'is required' },
@@ -61,30 +63,39 @@ const useStyles = makeStyles(theme => ({
     }
   },
   quote: {
-    backgroundColor: theme.palette.neutral,
     height: '100%',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundImage: 'url(/images/auth.jpg)',
+    backgroundImage:  "url(" + image + ")",
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center'
+    backgroundPosition: 'center',
+    position: 'relative',
+    '&:before': {
+      content: "''",
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0,0,0,.75)',
+      height: '100%',
+      width: '100%',
+      zIndex: 0
+    },
   },
   quoteInner: {
+    color: '#FFFFFF',
+    zIndex: 1,
     textAlign: 'center',
-    flexBasis: '600px'
+    flexBasis: '600px',
   },
   quoteText: {
-    color: theme.palette.white,
     fontWeight: 300
   },
   name: {
     marginTop: theme.spacing(3),
-    color: theme.palette.white
-  },
-  bio: {
-    color: theme.palette.white
   },
   contentContainer: {},
   content: {
@@ -202,29 +213,22 @@ const SignUp = props => {
         <Grid
           className={classes.quoteContainer}
           item
-          lg={5}
+          lg={8}
         >
           <div className={classes.quote}>
             <div className={classes.quoteInner}>
               <Typography
                 className={classes.quoteText}
-                variant="h1"
+                variant="h3"
               >
-                Hella narwhal Cosby sweater McSweeney's, salvia kitsch before
-                they sold out High Life.
+                Box-Finder
               </Typography>
               <div className={classes.person}>
                 <Typography
                   className={classes.name}
                   variant="body1"
                 >
-                  Takamaru Ayako
-                </Typography>
-                <Typography
-                  className={classes.bio}
-                  variant="body2"
-                >
-                  Manager at inVision
+                  naemo
                 </Typography>
               </div>
             </div>
@@ -233,7 +237,7 @@ const SignUp = props => {
         <Grid
           className={classes.content}
           item
-          lg={7}
+          lg={4}
           xs={12}
         >
           <div className={classes.content}>
@@ -249,7 +253,7 @@ const SignUp = props => {
               >
                 <Typography
                   className={classes.title}
-                  variant="h2"
+                  variant="h4"
                 >
                   Create new account
                 </Typography>

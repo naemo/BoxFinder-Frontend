@@ -26,7 +26,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const Charts_ = props => {
+const Charts2 = props => {
   const { className, ...rest } = props;
 
   const classes = useStyles();
@@ -62,8 +62,8 @@ const Charts_ = props => {
   );
 };
 
-Charts_.propTypes = {
+Charts2.propTypes = {
   className: PropTypes.string
 };
 
-export default Charts_;
+export default Charts2;

@@ -10,7 +10,9 @@ import {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(4)
+    padding: theme.spacing(4),
+    width: '80%',
+    margin: 'auto',
   }
 }));
 

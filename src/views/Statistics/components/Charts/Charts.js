@@ -15,6 +15,8 @@ import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 import { data, options } from './data';
 
+import Overview from "./Overview";
+
 const useStyles = makeStyles(() => ({
   root: {},
   chartContainer: {
@@ -30,6 +32,12 @@ const Charts = props => {
   const { className, ...rest } = props;
 
   const classes = useStyles();
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
   return (
     <Card
@@ -54,9 +62,14 @@ const Charts = props => {
           color="primary"
           size="small"
           variant="text"
+          onClick={handleClickOpen}
         >
           Overview <ArrowRightIcon />
         </Button>
+        <Overview 
+            open={open}
+            setOpen={setOpen}
+          />
       </CardActions>
     </Card>
   );

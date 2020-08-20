@@ -3,14 +3,16 @@ import { makeStyles } from '@material-ui/styles';
 import { Grid } from '@material-ui/core';
 
 import {
-  KakaoMap_,
-  Status_,
-  Charts_
+  KakaoMap2,
+  Status2,
+  Charts2
 } from './components';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(4)
+    padding: theme.spacing(4),
+    width: '80%',
+    margin: 'auto'
   }
 }));
 
@@ -30,7 +32,7 @@ const Estimation = () => {
           xl={8}
           xs={12}
         >
-          <KakaoMap_ />
+          <KakaoMap2 />
         </Grid>
         <Grid
           item
@@ -39,7 +41,7 @@ const Estimation = () => {
           xl={4}
           xs={12}
         >
-          <Status_ />
+          <Status2 />
         </Grid>
         <Grid
           item
@@ -48,7 +50,7 @@ const Estimation = () => {
           xl={12}
           xs={12}
         >
-          <Charts_ />
+          <Charts2 />
         </Grid>
       </Grid>
     </div>

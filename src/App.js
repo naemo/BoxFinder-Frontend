@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-import { ThemeProvider } from '@material-ui/styles';
 import validate from 'validate.js';
 
-import theme from './theme';
 import './assets/scss/index.scss';
 
 import validators from './common/validators';
@@ -21,11 +19,9 @@ validate.validators = {
 export default class App extends Component {
   render() {
     return (
-      <ThemeProvider theme={theme}>
         <Router history={browserHistory}>
           <Routes />
         </Router>
-      </ThemeProvider>
     );
   }
 }

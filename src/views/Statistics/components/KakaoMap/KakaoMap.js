@@ -14,7 +14,7 @@ import Map from './map';
 
 const useStyles = makeStyles(() => ({
   root: {
-    height: '100%'
+    height: '100%',
   }
 }));
 

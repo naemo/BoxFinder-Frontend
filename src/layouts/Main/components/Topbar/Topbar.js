@@ -11,7 +11,7 @@ import { TopbarNav } from './components';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    boxShadow: 'none'
+    // boxShadow: 'none'
   },
   flexGrow: {
     flexGrow: 2
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Topbar = props => {
-  const { className, onSidebarOpen, ...rest } = props;
+  const { className, ...rest } = props;
 
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -63,12 +63,12 @@ const Topbar = props => {
       className={clsx(classes.root, className)}
       color="inherit"
     >
-      <Toolbar>
+      <Toolbar >
         <RouterLink to="/statistics">
           <img
             width="80" height="60"
             alt="Logo"
-            src="/images/logos/logo.png"
+            src={require("assets/img/logos/logo.png")}
           />
         </RouterLink>
         <Hidden mdDown>
@@ -141,7 +141,6 @@ const Topbar = props => {
 
 Topbar.propTypes = {
   className: PropTypes.string,
-  onSidebarOpen: PropTypes.func
 };
 
 export default Topbar;

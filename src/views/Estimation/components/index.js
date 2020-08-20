@@ -1,4 +1,4 @@
-export { default as KakaoMap_ } from './KakaoMap_';
-export { default as Status_ } from './Status_';
-export { default as Charts_ } from './Charts_';
+export { default as KakaoMap2 } from './KakaoMap2';
+export { default as Status2 } from './Status2';
+export { default as Charts2 } from './Charts2';
 

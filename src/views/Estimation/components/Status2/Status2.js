@@ -49,7 +49,7 @@ const statusColors = {
   sufficient: 'success'
 };
 
-const Status_ = props => {
+const Status2 = props => {
   const { className, ...rest } = props;
 
   const classes = useStyles();
@@ -111,8 +111,8 @@ const Status_ = props => {
   );
 };
 
-Status_.propTypes = {
+Status2.propTypes = {
   className: PropTypes.string
 };
 
-export default Status_;
+export default Status2;
